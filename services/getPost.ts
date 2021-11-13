@@ -3,7 +3,7 @@ import { Post } from "../types";
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
-export const getPost = async (slug: Post["slug"]) => {
+export const getPost = async (slug: Post["slug"]): Promise<Post> => {
   const query = gql`
     query getPost($slug: String) {
       post(where: { slug: $slug }) {

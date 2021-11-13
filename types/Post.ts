@@ -20,4 +20,9 @@ export interface Post {
   featuredImage: FeaturedImage;
   slug: string;
   title: string;
+  content: {
+    raw: {
+      children: any[];
+    };
+  };
 }
