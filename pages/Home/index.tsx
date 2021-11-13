@@ -1,5 +1,6 @@
 import Head from "next/head";
-import { Categories, PostCard, PostWidget } from "./components";
+import { PostCard } from "./components";
+import { Categories, PostWidget } from "../../components/shared";
 
 export default function Home({ posts }) {
   return (

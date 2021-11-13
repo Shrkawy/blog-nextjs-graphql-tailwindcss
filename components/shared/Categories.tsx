@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { Category } from "../../../types";
-import { getCategories } from "../../../services/getCategories";
-import { useQueryFetch } from "../../../hooks";
+import { Category } from "../../types";
+import { getCategories } from "../../services/getCategories";
+import { useQueryFetch } from "../../hooks";
 
 const Categories = () => {
   const categories = useQueryFetch<Category>(getCategories);

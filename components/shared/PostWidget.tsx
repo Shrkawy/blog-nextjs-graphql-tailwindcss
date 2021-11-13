@@ -3,10 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import moment from "moment";
 
-import { Post, Category } from "../../../types";
+import { Post, Category } from "../../types";
 
-import { getSimilarPosts } from "../../../services/getSimilarPosts";
-import { getRecentPosts } from "../../../services/getRecentPosts";
+import { getSimilarPosts } from "../../services/getSimilarPosts";
+import { getRecentPosts } from "../../services/getRecentPosts";
 
 interface Props {
   categories?: Category[];
