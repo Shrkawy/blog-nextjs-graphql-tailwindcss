@@ -1,3 +1,4 @@
+import { Category } from "./Category";
 interface Author {
   bio: string;
   name: string;
@@ -5,10 +6,6 @@ interface Author {
   photo: {
     url: string;
   };
-}
-interface Category {
-  name: string;
-  slug: string;
 }
 
 interface FeaturedImage {

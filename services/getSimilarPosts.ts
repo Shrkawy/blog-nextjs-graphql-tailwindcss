@@ -2,7 +2,7 @@ import { request, gql } from "graphql-request";
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
-export const getSimilarPosts = async () => {
+export const getSimilarPosts = async (...oprions) => {
   const query = gql`
     query getPostDetails($slug: String, $categories: [String!]) {
       posts(
