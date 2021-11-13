@@ -1,10 +1,15 @@
-
-const PostCard = () => {
-    return (
-        <div>
-            
-        </div>
-    )
+import { Post } from "../../../types/Post";
+interface Props {
+  post: Post;
 }
 
-export default PostCard
+const PostCard = ({ post }: Props) => {
+  return (
+    <div>
+      {post.title}
+      {post.excerpt}
+    </div>
+  );
+};
+
+export default PostCard;

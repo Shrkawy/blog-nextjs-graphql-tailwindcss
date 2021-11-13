@@ -1,5 +1,5 @@
 const PostWidget = () => {
-  return <div></div>;
+  return <div>PostWidget</div>;
 };
 
 export default PostWidget;
