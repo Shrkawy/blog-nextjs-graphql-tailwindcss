@@ -1,12 +1,11 @@
 import Link from "next/link";
 import { Category } from "../../types";
-
-const categories: Category[] = [
-  { name: "React", slug: "react" },
-  { name: "Web Development", slug: "web-dev" },
-];
+import { useQueryFetch } from "../../hooks/useQueryFetch";
+import { getCategories } from "../../services/getCategories";
 
 const Header = () => {
+  const categories = useQueryFetch<Category>(getCategories);
+  
   return (
     <header className="container px-10 mx-auto mb-8">
       <div className="inline-block w-full py-8 border-b border-blue-400">
