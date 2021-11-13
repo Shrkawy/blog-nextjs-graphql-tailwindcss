@@ -1,14 +1,10 @@
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Category } from "../../../types";
 import { getCategories } from "../../../services/getCategories";
+import { useQueryFetch } from "../../../hooks";
 
 const Categories = () => {
-  const [categories, setCategories] = useState<Category[]>([]);
-
-  useEffect(() => {
-    getCategories().then((res) => setCategories(res));
-  }, []);
+  const categories = useQueryFetch<Category>(getCategories);
 
   return (
     <div className="p-8 pb-12 mb-8 bg-white rounded-lg shadow-lg">
