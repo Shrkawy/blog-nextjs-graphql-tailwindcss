@@ -1,13 +1,13 @@
 import Head from "next/head";
+import { getPosts } from "../../services";
 import { Post } from "../../types";
 import { Categories, PostCard, PostWidget } from "./components";
 
-const posts: Post[] = [
-  { title: "React Testing", excerpt: "Learn React Testing" },
-  { title: "React with TailwindCSS", excerpt: "Learn React with TailwindCSS" },
-];
+interface HomeProps {
+  posts: Post[];
+}
 
-export default function Home() {
+export default function Home({ posts }: HomeProps) {
   return (
     <main className="container px-10 mx-auto mb-8">
       <Head>
