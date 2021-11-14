@@ -35,6 +35,5 @@ export const getCategoryPost = async (slug: Post["slug"]): Promise<Post[]> => {
   `;
 
   const result = await request(graphqlAPI, query, { slug });
-  console.log(result);
   return result.postsConnection.edges.map((post) => post.node);
 };
