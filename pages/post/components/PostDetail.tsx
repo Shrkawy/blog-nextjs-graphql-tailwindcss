@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { PostAuthorDetails } from "../../../components/shared";
 import { Post } from "../../../types";
-import { GetContentFragment } from "../utils";
+import GetContentFragment from "../utils/GetContentFragment";
 
 interface PostDetailProps {
   post: Post;
