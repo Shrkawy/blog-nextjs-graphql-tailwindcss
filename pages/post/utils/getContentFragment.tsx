@@ -2,6 +2,7 @@ import { Fragment } from "react";
 
 const GetContentFragment = (index, text, obj, type) => {
   let modifiedText = text;
+  console.log(modifiedText);
 
   if (obj) {
     if (obj.bold) {
@@ -53,7 +54,7 @@ const GetContentFragment = (index, text, obj, type) => {
         />
       );
     default:
-      return modifiedText;
+      return <> {modifiedText} </>;
   }
 };
 
