@@ -5,4 +5,5 @@ export interface Comment {
   email: string;
   comment: string;
   slug: Post["slug"];
+  createdAt?: string;
 }
