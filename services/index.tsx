@@ -6,6 +6,7 @@ import { getPost } from "./getPost";
 import { submitComment } from "./submitComment";
 import { getComments } from "./getComments";
 import { getFeaturedPosts } from "./getFeaturedPosts";
+import { getCategoryPost } from "./getCategoryPost";
 
 export {
   submitComment,
@@ -16,4 +17,5 @@ export {
   getPost,
   getComments,
   getFeaturedPosts,
+  getCategoryPost,
 };

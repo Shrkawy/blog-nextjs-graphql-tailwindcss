@@ -22,7 +22,7 @@ const Comments = ({ slug }: CommentsProps) => {
             {comments.length} Comments
           </h3>
           {comments.map((co) => (
-            <Comment comment={co} />
+            <Comment key={co.slug} comment={co} />
           ))}
         </div>
       )}
