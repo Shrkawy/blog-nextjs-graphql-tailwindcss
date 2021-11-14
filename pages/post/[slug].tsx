@@ -9,6 +9,7 @@ interface PostDetailsProps {
 }
 
 const PostDetails = ({ post }: PostDetailsProps) => {
+  console.log(post)
   return (
     <>
       <Head>

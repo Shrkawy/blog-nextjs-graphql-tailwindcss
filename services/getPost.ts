@@ -27,7 +27,7 @@ export const getPost = async (slug: Post["slug"]): Promise<Post> => {
           slug
         }
         content {
-          raw
+          html
         }
       }
     }

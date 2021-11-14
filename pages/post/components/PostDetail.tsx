@@ -1,14 +1,18 @@
 import Image from "next/image";
+import parse from "html-react-parser";
+
 import { PostAuthorDetails } from "../../../components/shared";
 import { Post } from "../../../types";
-import GetContentFragment from "../utils/GetContentFragment";
+
+import styles from "./PostDetail.module.css";
 
 interface PostDetailProps {
   post: Post;
 }
+
 const PostDetail = ({ post }: PostDetailProps) => {
   return (
-    <div className="pb-12 mb-8 bg-white rounded-lg shadow-lg lg:p-8">
+    <article className="pb-12 mb-8 bg-white rounded-lg shadow-lg lg:p-8">
       <div className="relative mb-6 shadow-md h-72 overflow -hidden">
         <Image
           src={post.featuredImage.url}
@@ -26,15 +30,9 @@ const PostDetail = ({ post }: PostDetailProps) => {
           />
         </div>
         <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
-        {post.content.raw.children.map((typeObj, index) => {
-          const children = typeObj.children.map((item, i) =>
-            GetContentFragment(i, item.text, typeObj, item)
-          );
-
-          return GetContentFragment(index, children, typeObj, typeObj.type);
-        })}
+        <div className={styles.content}>{parse(post.content.html)}</div>
       </div>
-    </div>
+    </article>
   );
 };
 

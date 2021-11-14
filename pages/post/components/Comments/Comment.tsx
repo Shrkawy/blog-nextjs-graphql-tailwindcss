@@ -7,7 +7,6 @@ interface CommentProps {
 }
 
 const Comment = ({ comment }: CommentProps) => {
-  console.log(comment);
   return (
     <div key={comment.createdAt} className="pb-4 mb-4 border-b border-gray-100">
       <p className="mb-4">

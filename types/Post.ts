@@ -21,8 +21,6 @@ export interface Post {
   slug: string;
   title: string;
   content: {
-    raw: {
-      children: any[];
-    };
+    html: string;
   };
 }
