@@ -4,6 +4,7 @@ import { getSimilarPosts } from "./getSimilarPosts";
 import { getCategories } from "./getCategories";
 import { getPost } from "./getPost";
 import { submitComment } from "./submitComment";
+import { getComments } from "./getComments";
 
 export {
   submitComment,
@@ -12,4 +13,5 @@ export {
   getSimilarPosts,
   getCategories,
   getPost,
+  getComments,
 };
