@@ -1,4 +1,10 @@
-import { useState, ChangeEvent, useCallback, FormEvent } from "react";
+import {
+  useState,
+  ChangeEvent,
+  useCallback,
+  FormEvent,
+  useEffect,
+} from "react";
 
 export interface FormValues {
   [key: string]: {
@@ -7,9 +13,21 @@ export interface FormValues {
   };
 }
 
-export const useForm = (initFormValues: FormValues) => {
+export const useForm = (initFormValues: FormValues, slug?: string) => {
   const [formValues, setFormValues] = useState(initFormValues);
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    setFormValues(initFormValues);
+  }, [initFormValues]);
+
+  useEffect(() => {
+    if (submitted) {
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 2500);
+    }
+  }, [submitted]);
 
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -26,11 +44,41 @@ export const useForm = (initFormValues: FormValues) => {
     []
   );
 
-  const handleSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    let formHasError = false;
+
+    for (const [key, el] of Object.entries(formValues)) {
+      const { value } = el;
+      if (!value) {
+        setFormValues((curr) => ({
+          ...curr,
+          [key]: {
+            value,
+            hasError: true,
+          },
+        }));
+        formHasError = true;
+        continue;
+      }
+      formHasError = false;
+    }
+
+    if (formHasError) return;
+
+    const finalValues = {
+      name: formValues.name.value,
+      email: formValues.email.value,
+      comment: formValues.comment.value,
+      slug,
+    };
+
+    console.log(finalValues);
+
     setFormValues(initFormValues);
     setSubmitted(true);
-  }, []);
+  };
 
-  return { submitted, formValues, handleChange, handleSubmit };
+  return { submitted, formValues, handleChange, handleFormSubmit };
 };
