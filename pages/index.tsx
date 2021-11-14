@@ -1,7 +1,7 @@
 import Home from "./Home";
 import { getPosts } from "../services/index";
 
-export default function App({ posts }) {
+export default function AppHome({ posts }) {
   return <Home posts={posts} />;
 }
 

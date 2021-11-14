@@ -5,6 +5,8 @@ import {
   FormEvent,
   useEffect,
 } from "react";
+import { Comment } from "../types";
+import { submitComment } from "../services/submitComment";
 
 export interface FormValues {
   [key: string]: {
@@ -16,6 +18,7 @@ export interface FormValues {
 export const useForm = (initFormValues: FormValues, slug?: string) => {
   const [formValues, setFormValues] = useState(initFormValues);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     setFormValues(initFormValues);
@@ -44,7 +47,9 @@ export const useForm = (initFormValues: FormValues, slug?: string) => {
     []
   );
 
-  const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    setIsSubmitting(true);
+
     e.preventDefault();
 
     let formHasError = false;
@@ -67,18 +72,37 @@ export const useForm = (initFormValues: FormValues, slug?: string) => {
 
     if (formHasError) return;
 
-    const finalValues = {
+    const comment: Comment = {
       name: formValues.name.value,
       email: formValues.email.value,
       comment: formValues.comment.value,
       slug,
     };
 
-    console.log(finalValues);
+    let res;
 
-    setFormValues(initFormValues);
-    setSubmitted(true);
+    try {
+      res = await submitComment(comment);
+    } catch (err) {
+      console.error(err);
+      setIsSubmitting(false);
+      return;
+    }
+
+    if (res) {
+      setFormValues(initFormValues);
+      setSubmitted(true);
+    }
+
+    setIsSubmitting(false);
+    return;
   };
 
-  return { submitted, formValues, handleChange, handleFormSubmit };
+  return {
+    isSubmitting,
+    submitted,
+    formValues,
+    handleChange,
+    handleFormSubmit,
+  };
 };

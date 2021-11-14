@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "next.config.js"  ],
+, "next.config.js", "pages/post/utils/getContentFragment.jsx"  ],
   "exclude": [
     "node_modules"
   ]

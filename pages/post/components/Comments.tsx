@@ -1,10 +1,11 @@
+import { Post } from "../../../types";
 
-const Comments = () => {
-    return (
-        <div>
-            Comments
-        </div>
-    )
+interface CommentsProps {
+  slug: Post["slug"];
 }
 
-export default Comments
+const Comments = ({ slug }: CommentsProps) => {
+  return <div>Comments</div>;
+};
+
+export default Comments;

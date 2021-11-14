@@ -9,7 +9,7 @@ import { getSimilarPosts } from "../../services/getSimilarPosts";
 import { getRecentPosts } from "../../services/getRecentPosts";
 
 interface Props {
-  categories?: Category[];
+  categories?: Category["slug"][];
   slug?: Post["slug"];
 }
 
@@ -18,7 +18,7 @@ const PostWidget = ({ categories, slug }: Props) => {
 
   useEffect(() => {
     if (slug) {
-      getSimilarPosts(categories, slug).then((result) =>
+      getSimilarPosts(slug, categories).then((result) =>
         setRelatedPosts(result)
       );
     } else {
