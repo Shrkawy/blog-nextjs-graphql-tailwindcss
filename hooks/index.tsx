@@ -1,3 +1,4 @@
 import { useQueryFetch } from "./useQueryFetch";
+import { useForm } from "./useForm";
 
-export { useQueryFetch };
+export { useQueryFetch, useForm };
