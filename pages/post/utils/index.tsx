@@ -1,2 +1,1 @@
-import { getContentFragment } from "./getContentFragment";
-export { getContentFragment };
+export { default as getContentFragment } from "./getContentFragment";
