@@ -1,5 +1,6 @@
 import { Fragment } from "react";
-const getContentFragment = (index, text, obj, type) => {
+
+const GetContentFragment = (index, text, obj, type) => {
   let modifiedText = text;
 
   if (obj) {
@@ -56,4 +57,4 @@ const getContentFragment = (index, text, obj, type) => {
   }
 };
 
-export default getContentFragment;
+export default GetContentFragment;

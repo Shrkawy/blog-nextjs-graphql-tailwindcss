@@ -1,1 +1,1 @@
-export { default as getContentFragment } from "./getContentFragment";
+export { default as GetContentFragment } from "./GetContentFragment";

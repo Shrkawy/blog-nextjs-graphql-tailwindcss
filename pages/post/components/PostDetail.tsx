@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { PostAuthorDetails } from "../../../components/shared";
 import { Post } from "../../../types";
-import { getContentFragment } from "../utils";
+import { GetContentFragment } from "../utils";
 
 interface PostDetailProps {
   post: Post;
@@ -28,10 +28,10 @@ const PostDetail = ({ post }: PostDetailProps) => {
         <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
         {post.content.raw.children.map((typeObj, index) => {
           const children = typeObj.children.map((item, i) =>
-            getContentFragment(i, item.text, typeObj, item)
+            GetContentFragment(i, item.text, typeObj, item)
           );
 
-          return getContentFragment(index, children, typeObj, typeObj.type);
+          return GetContentFragment(index, children, typeObj, typeObj.type);
         })}
       </div>
     </div>
