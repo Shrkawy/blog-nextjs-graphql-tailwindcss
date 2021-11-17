@@ -1,6 +1,6 @@
-import { Comment as CommentType, Post } from "../../../../types";
 import { useState, useEffect } from "react";
-import { getComments } from "../../../../services";
+import { Comment as CommentType, Post } from "../../../types";
+import { getComments } from "../../../services";
 import Comment from "./Comment";
 
 interface CommentsProps {

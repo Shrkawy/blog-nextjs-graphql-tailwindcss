@@ -1,10 +1,8 @@
 import Image from "next/image";
 import parse from "html-react-parser";
 
-import { PostAuthorDetails } from "../../../components/shared";
 import { Post } from "../../../types";
-
-import styles from "./PostDetail.module.css";
+import PostAuthorDetails from "./PostAuthorDetails";
 
 interface PostDetailProps {
   post: Post;
@@ -30,7 +28,7 @@ const PostDetail = ({ post }: PostDetailProps) => {
           />
         </div>
         <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
-        <div className={styles.content}>{parse(post.content.html)}</div>
+        <div className="post_content">{parse(post.content.html)}</div>
       </div>
     </article>
   );

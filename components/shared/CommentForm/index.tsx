@@ -1,9 +1,10 @@
-import { useForm } from "../../../../hooks";
-import { Post } from "../../../../types";
-import Button from "./Button";
-import Input from "./Input";
-import TextArea from "./TextArea";
+import { useForm } from "../../../hooks";
+import { Post } from "../../../types";
+
 import { useEffect, useState } from "react";
+import TextArea from "./TextArea";
+import Input from "./Input";
+import Button from "./Button";
 
 interface CommentFormProps {
   slug: Post["slug"];

@@ -1,14 +1,13 @@
-import React from "react";
-import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
-import { Post } from "../../../../types";
+import moment from "moment";
+import { Post } from "../../../types";
 
 interface Props {
   post: Post;
 }
 
-const PostCard = ({ post }: Props) => (
+const FeaturedPostCard = ({ post }: Props) => (
   <div className="relative h-72">
     <div
       className="absolute inline-block w-full bg-center bg-no-repeat bg-cover rounded-lg shadow-md h-72"
@@ -41,4 +40,4 @@ const PostCard = ({ post }: Props) => (
   </div>
 );
 
-export default PostCard;
+export default FeaturedPostCard;

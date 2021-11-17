@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Post } from "../../types";
-import { Date } from "../Icons";
+import { Post } from "../../../types";
+import { Date } from "../../Icons";
 import moment from "moment";
 
 interface Props {

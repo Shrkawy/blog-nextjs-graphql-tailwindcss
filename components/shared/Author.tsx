@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Post } from "../../../types";
+import { Post } from "../../types";
 
 interface AuthorProps {
   author: Post["author"];

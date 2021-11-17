@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 
 import { getCategories, getCategoryPost } from "../../services";
-import { PostCard } from "../Home/components";
 import { Loader, Categories } from "../../components/shared";
 import { Post } from "../../types";
+import PostCard from '../../components/shared/PostCard';
 
 interface Props {
   posts: Post[];

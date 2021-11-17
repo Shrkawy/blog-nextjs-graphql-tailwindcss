@@ -1,6 +1,6 @@
 import moment from "moment";
 import parse from "html-react-parser";
-import { Comment as CommentType } from "../../../../types";
+import { Comment as CommentType } from "../../../types";
 
 interface CommentProps {
   comment: CommentType;

@@ -1,8 +1,14 @@
 import Head from "next/head";
-import { PostWidget, Categories } from "../../components/shared";
+import {
+  PostWidget,
+  Categories,
+  PostDetail,
+  Author,
+  CommentForm,
+  Comments,
+} from "../../components/shared";
 import { Post } from "../../types/Post";
 import { getPost, getPosts } from "../../services";
-import { Author, CommentForm, Comments, PostDetail } from "./components";
 
 interface PostDetailsProps {
   post: Post;

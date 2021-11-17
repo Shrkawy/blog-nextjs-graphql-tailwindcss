@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-import PostCard from "./PostCard";
-import { getFeaturedPosts } from "../../../../services";
-import { Post } from "../../../../types";
+import { getFeaturedPosts } from "../../../services";
+import { Post } from "../../../types";
+import PostCard from "../PostCard";
+import FeaturedPostCard from "./FeaturedPostCard";
 
 const responsive = {
   superLargeDesktop: {
@@ -85,7 +86,7 @@ const FeaturedPosts = () => {
       >
         {dataLoaded &&
           featuredPosts.map((post, index) => (
-            <PostCard key={index} post={post} />
+            <FeaturedPostCard key={index} post={post} />
           ))}
       </Carousel>
     </div>
